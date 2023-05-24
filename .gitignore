@@ -1,0 +1,38 @@
+# Fichiers générés par l'environnement de développement
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# Fichiers de build et de dépendances
+/build/
+/node_modules/
+*.log
+
+# Fichiers d'environnement et de configuration
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Fichiers de sauvegarde et temporaires
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Fichiers de sortie d'applications
+/dist/
+/out/
+
+# Fichiers de documentation générés
+/docs/
+
+# Fichiers de logs
+/logs/
+
+# Fichiers de tests
+/__tests__/
