@@ -40,3 +40,32 @@ VALUES (6, 1006, 'Antoine', 'Aouat', 0);
 
 INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
 VALUES (7, 1007, 'Thomas', 'Gendron', 0);
+
+#Responses
+INSERT INTO Responses (id_response, tally_id_responses, date_soumission, id_user, id_questionnaire)
+VALUES (1, 2001, '2023-04-01', 1, 1);
+
+INSERT INTO Responses (id_response, tally_id_responses, date_soumission, id_user, id_questionnaire)
+VALUES (2, 2002, '2023-04-03', 2, 2);
+
+INSERT INTO Responses (id_response, tally_id_responses, date_soumission, id_user, id_questionnaire)
+VALUES (3, 2003, '2023-04-05', 3, 1);
+
+INSERT INTO Responses (id_response, tally_id_responses, date_soumission, id_user, id_questionnaire)
+VALUES (4, 2004, '2023-04-08', 1, 3);
+
+INSERT INTO Responses (id_response, tally_id_responses, date_soumission, id_user, id_questionnaire)
+VALUES (5, 2005, '2023-04-10', 2, 1);
+
+#Have acces
+INSERT INTO have_access (id_questionnaire, id_user)
+VALUES (1, 1001);
+
+INSERT INTO have_access (id_questionnaire, id_user)
+VALUES (2, 1002);
+
+INSERT INTO have_access (id_questionnaire, id_user)
+VALUES (1, 1003);
+
+
+
