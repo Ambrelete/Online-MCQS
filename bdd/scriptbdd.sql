@@ -3,10 +3,6 @@ DROP TABLE IF EXISTS own;
 DROP TABLE IF EXISTS have_access;
 DROP TABLE IF EXISTS Responses;
 DROP TABLE IF EXISTS Users;
--- Pour supp les tables existantes
-DROP TABLE IF EXISTS Question;
-DROP TABLE IF EXISTS Questionnaire;
---
 DROP TABLE IF EXISTS Questions;
 DROP TABLE IF EXISTS Questionnaires;
 
