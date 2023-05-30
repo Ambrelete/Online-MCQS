@@ -1,3 +1,5 @@
+#Questionnaire
+
 INSERT INTO Questionnaires (id_questionnaire, tally_id_questionnaire, name_questionnaire, date_creation_questionnaire)
 VALUES (1, 1001, 'Questionnaire 1', '2023-01-01');
 
@@ -7,6 +9,34 @@ VALUES (2, 1002, 'Questionnaire 2', '2023-02-15');
 INSERT INTO Questionnaires (id_questionnaire, tally_id_questionnaire, name_questionnaire, date_creation_questionnaire)
 VALUES (3, 1003, 'Questionnaire 3', '2023-03-10');
 
-
+#Question
 INSERT INTO Questions (id_question, tally_id_question, label_question, type_question, is_mandatory)
 VALUES (1, 1001, 'Quelle est votre couleur préférée?', 'Choice', TRUE);
+
+INSERT INTO Questions (id_question, label_question, type_question, is_mandatory)
+VALUES (2, 'Quel est votre animal préféré?', 'Text', FALSE);
+
+INSERT INTO Questions (id_question, tally_id_question, label_question, type_question)
+VALUES (3, 1002, 'Quel est votre pays de résidence?', 'Text');
+
+#User
+NSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (1, 1001, 'Maelys', 'Very', 1);
+
+INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (2, 1002, 'Jeanne', 'Descourtis', 0);
+
+INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (3, 1003, 'Chloe', 'Anglard', 0);
+
+INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (4, 1004, 'Ambre', 'Letellier', 1);
+
+INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (5, 1005, 'Emmie', 'Kieffer', 0);
+
+INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (6, 1006, 'Antoine', 'Aouat', 0);
+
+INSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
+VALUES (7, 1007, 'Thomas', 'Gendron', 0);
