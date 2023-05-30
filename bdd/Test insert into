@@ -1,1 +1,12 @@
+INSERT INTO Questionnaires (id_questionnaire, tally_id_questionnaire, name_questionnaire, date_creation_questionnaire)
+VALUES (1, 1001, 'Questionnaire 1', '2023-01-01');
 
+INSERT INTO Questionnaires (id_questionnaire, tally_id_questionnaire, name_questionnaire, date_creation_questionnaire)
+VALUES (2, 1002, 'Questionnaire 2', '2023-02-15');
+
+INSERT INTO Questionnaires (id_questionnaire, tally_id_questionnaire, name_questionnaire, date_creation_questionnaire)
+VALUES (3, 1003, 'Questionnaire 3', '2023-03-10');
+
+
+INSERT INTO Questions (id_question, tally_id_question, label_question, type_question, is_mandatory)
+VALUES (1, 1001, 'Quelle est votre couleur préférée?', 'Choice', TRUE);
