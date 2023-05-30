@@ -11,13 +11,13 @@ VALUES (3, 1003, 'Questionnaire 3', '2023-03-10');
 
 #QUESTION
 INSERT INTO Questions (id_question, tally_id_question, label_question, type_question, is_mandatory)
-VALUES (1, 1001, 'Quelle est votre couleur préférée?', 'Choice', TRUE);
+VALUES (1, 1001, 'Est-ce que vous êtes une femme ou un homme?', 'Choice', TRUE);
 
 INSERT INTO Questions (id_question, label_question, type_question, is_mandatory)
-VALUES (2, 'Quel est votre animal préféré?', 'Text', FALSE);
+VALUES (2, 'Est-ce que vous vous sentez bien à l'école?', 'Text', FALSE);
 
 INSERT INTO Questions (id_question, tally_id_question, label_question, type_question)
-VALUES (3, 1002, 'Quel est votre pays de résidence?', 'Text');
+VALUES (3, 1002, 'Est-ce que les locaux vous semble agréables?', 'Text');
 
 #USER
 NSERT INTO Users (id_user, tally_id_user, firstname_user, lastname_user, is_admin)
