@@ -1,3 +1,5 @@
+use masterproject ; 
+
 DROP TABLE IF EXISTS results;
 DROP TABLE IF EXISTS own;
 DROP TABLE IF EXISTS have_access;
@@ -8,7 +10,7 @@ DROP TABLE IF EXISTS Questionnaires;
 
 CREATE TABLE Questionnaires (
    id_questionnaire INT,
-   tally_id_questionnaire INT,
+   tally_id_questionnaire VARCHAR(6),
    name_questionnaire VARCHAR(100),
    date_creation_questionnaire DATE,
    PRIMARY KEY(id_questionnaire)

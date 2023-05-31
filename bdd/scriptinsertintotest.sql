@@ -1,3 +1,5 @@
+use masterproject ; 
+
 -- QUESTIONNAIRE
 
 INSERT INTO Questionnaires (id_questionnaire, tally_id_questionnaire, name_questionnaire, date_creation_questionnaire) VALUES (1, 1001, 'My self, My mind, My work', '2023-05-20');
