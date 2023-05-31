@@ -60,13 +60,13 @@ VALUES (5, 2005, '2023-04-10', 2, 1);
 
 -- HAVE ACCES
 INSERT INTO have_access (id_questionnaire, id_user)
-VALUES (1, 1001);
+VALUES (1, 1);
 
 INSERT INTO have_access (id_questionnaire, id_user)
-VALUES (2, 1002);
+VALUES (2, 2);
 
 INSERT INTO have_access (id_questionnaire, id_user)
-VALUES (1, 1003);
+VALUES (1, 3);
 
 -- OWN
 INSERT INTO own (id_questionnaire, id_question)
