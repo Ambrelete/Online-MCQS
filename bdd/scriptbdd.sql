@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS Questions;
 DROP TABLE IF EXISTS Questionnaires;
 
 CREATE TABLE Questionnaires (
-   id_questionnaire INT,
+   id_questionnaire INT NOT NULL AUTO_INCREMENT,
    tally_id_questionnaire VARCHAR(6),
    name_questionnaire VARCHAR(100),
    date_creation_questionnaire DATE,
@@ -17,7 +17,7 @@ CREATE TABLE Questionnaires (
 );
 
 CREATE TABLE Questions (
-   id_question INT,
+   id_question INT NOT NULL AUTO_INCREMENT,
    tally_id_question VARCHAR(6),
    label_question VARCHAR(1000),
    type_question VARCHAR(50),
@@ -26,16 +26,18 @@ CREATE TABLE Questions (
 );
 
 CREATE TABLE Users (
-   id_user INT,
+   id_user INT NOT NULL AUTO_INCREMENT,
    tally_id_user VARCHAR(6),
    firstname_user VARCHAR(50),
    lastname_user VARCHAR(50),
+   email_user VARCHAR(100),
+   phone_user VARCHAR(10),
    is_admin BOOLEAN,
    PRIMARY KEY(id_user)
 );
 
 CREATE TABLE Responses (
-   id_response INT,
+   id_response INT NOT NULL AUTO_INCREMENT,
    tally_id_responses VARCHAR(6),
    date_soumission DATE,
    id_user INT NOT NULL,
