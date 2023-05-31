@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MY - Data Page</title>
+		<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+		<style>
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			th,
+			td {
+				border: 1px solid black;
+				padding: 8px;
+				text-align: left;
+			}
+
+			th {
+				background-color: #f2f2f2;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Data Page</h1>
+		<table>
+			<tr>
+				<th>Date</th>
+				<th>Question</th>
+				<th>Response</th>
+			</tr>
+			{% for entry in data %}
+			<tr>
+				<td>{{ entry['createdAt'] }}</td>
+				<td>
+					<ul>
+						{% for field in entry['data']['fields'] %}
+						<li>{{ field['label'] }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+				<td>
+					<ul>
+						{% for field in entry['data']['fields'] %}
+						<li>
+							{% if field['type'] == 'MULTIPLE_CHOICE' %} {% for option in field['options'] %} {% if option['id'] ==
+							field['value'] %} {{ option['text'] }} {% endif %} {% endfor %} {% else %} {{ field['value'] }} {%
+							endif %}
+						</li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>

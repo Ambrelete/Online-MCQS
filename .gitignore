@@ -36,3 +36,5 @@ Thumbs.db
 
 # Fichiers de tests
 /__tests__/
+
+back/vercel.json
