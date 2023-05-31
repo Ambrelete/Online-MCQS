@@ -16,7 +16,7 @@ CREATE TABLE Questionnaires (
 
 CREATE TABLE Questions (
    id_question INT,
-   tally_id_question INT,
+   tally_id_question VARCHAR(6),
    label_question VARCHAR(1000),
    type_question VARCHAR(50),
    is_mandatory BOOLEAN,
@@ -25,7 +25,7 @@ CREATE TABLE Questions (
 
 CREATE TABLE Users (
    id_user INT,
-   tally_id_user INT,
+   tally_id_user VARCHAR(6),
    firstname_user VARCHAR(50),
    lastname_user VARCHAR(50),
    is_admin BOOLEAN,
@@ -34,7 +34,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Responses (
    id_response INT,
-   tally_id_responses INT,
+   tally_id_responses VARCHAR(6),
    date_soumission DATE,
    id_user INT NOT NULL,
    id_questionnaire INT NOT NULL,
