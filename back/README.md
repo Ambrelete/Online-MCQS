@@ -18,7 +18,7 @@ Backend made with Flask for the acquisition, manipulation and storage of data fr
 1. Clone the repo :
 
 ```bash
-git clone https://github.com/Tomspace900/myapp
+git clone https://github.com/Jeanne-Des/MasterProject
 ```
 
 2. Go to directory & create virtual environment
