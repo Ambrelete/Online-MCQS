@@ -51,7 +51,17 @@ myenv\Scripts\activate
 pip3 install -r requirements.txt
 ```
 
-5. Start the app
+5. Create a `.env` file in `back/` folder :
+
+```bash
+DATABASE_NAME=
+DATABASE_USER=
+DATABASE_PASSWORD=
+DATABASE_HOST=
+DATABASE_PORT=
+```
+
+6. Start the app
 
 ```bash
 python3 api/index.py
