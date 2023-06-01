@@ -38,3 +38,4 @@ Thumbs.db
 /__tests__/
 
 back/vercel.json
+back/test/

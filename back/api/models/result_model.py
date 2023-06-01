@@ -1,7 +1,7 @@
 from configs.db_config import db
 
 
-class Value(db.Model):
+class Result(db.Model):
     __tablename__ = "results"
 
     id_question = db.Column(

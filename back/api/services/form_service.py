@@ -3,7 +3,7 @@ from models.form_model import Questionnaire
 from services.user_service import create_user
 from services.response_service import create_response, get_response
 from services.question_service import create_question, get_question
-from services.value_service import create_value
+from services.result_service import create_result, get_result
 from datetime import datetime
 
 
@@ -79,7 +79,15 @@ def save_questionnaire(data):
         elif question_type in ["INPUT_TEXT", "INPUT_EMAIL", "INPUT_PHONE_NUMBER", "RATING", "LINEAR_SCALE"]:
             response_value = q["value"]
 
-        create_value(response.id_response, question.id_question, response_value)
+        result = get_result(response.id_response, question.id_question)
+        
+        print("response_id: ", response.id_response, "question_id: ", question.id_question, "value: ", response_value)
+        
+        if not result: 
+            print("value does not exist")
+            result = create_result(response.id_response, question.id_question, response_value)
+        
+        print("result: ", result)
 
     return questionnaire
 
