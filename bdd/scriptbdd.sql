@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS Responses;
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Questions;
 DROP TABLE IF EXISTS Questionnaires;
+DROP TABLE IF EXISTS Emails;
 
 CREATE TABLE Questionnaires (
    id_questionnaire INT NOT NULL AUTO_INCREMENT,
@@ -71,3 +72,12 @@ CREATE TABLE results (
    FOREIGN KEY(id_question) REFERENCES Questions(id_question),
    FOREIGN KEY(id_response) REFERENCES Responses(id_response)
 );
+
+CREATE TABLE Emails (
+   id_email INT NOT NULL AUTO_INCREMENT,
+   email VARCHAR(100),
+   PRIMARY KEY(id_email)
+);
+
+-- Insertion des données de test
+INSERT INTO Users (firstname_user, lastname_user, email_user, is_admin) VALUES ('admin', 'admin', 'myselfmindwork@gmail.com', 1);
