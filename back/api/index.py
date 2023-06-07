@@ -17,8 +17,10 @@ db.init_app(app)
 app.register_blueprint(form, url_prefix="/form")
 app.register_blueprint(webhook, url_prefix="/form")
 
-stored_data = []
 
+# ----------- templates de test -----------
+
+stored_data = []
 
 # Main page
 @app.route("/")
@@ -37,16 +39,15 @@ def handleWebhook():
 # Data visualization page
 @app.route("/data")
 def get_data():
-    print(stored_data)
-    # return jsonify(stored_data)
     return render_template("data.html", data=stored_data)
 
 
-# Send data to the frontend (Tableau / Dataiku)
+# Raw data visualization
 @app.route("/get-data", methods=["GET"])
 def send_data():
     return jsonify(stored_data)
 
+# ----------- templates de test -----------
 
 if __name__ == "__main__":
     app.run()

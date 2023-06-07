@@ -34,3 +34,17 @@ def get_responses():
 
     return responses
 
+def get_response_value(question):
+    question_type = question["type"]
+    response_value = None
+    
+    # si il y a un champ 'options' dans la question, on récupère la valeur de l'option
+    if question_type in ["DROPDOWN", "MULTIPLE_CHOICE"]:
+        for option in question["options"]:
+            if option["id"] == question["value"]:
+                response_value = option["text"]
+                break
+    elif question_type in ["INPUT_TEXT", "INPUT_EMAIL", "INPUT_PHONE_NUMBER", "RATING", "LINEAR_SCALE"]:
+        response_value = question["value"]
+    
+    return response_value

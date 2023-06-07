@@ -9,3 +9,14 @@ def create_own(questionnaire_id, question_id):
     db.session.commit()
 
     return own
+
+def get_own(questionnaire_id, question_id):
+    own = (
+        db.session.query(Own)
+        .filter_by(id_questionnaire=questionnaire_id, id_question=question_id)
+        .first()
+    )
+    if not own:
+        return None
+
+    return own

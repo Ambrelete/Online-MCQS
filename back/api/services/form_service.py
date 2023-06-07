@@ -1,30 +1,11 @@
 from configs.db_config import db
 from models.form_model import Questionnaire
 from services.user_service import create_user
-from services.response_service import create_response, get_response
+from services.response_service import create_response, get_response, get_response_value
 from services.question_service import create_question, get_question
+from services.own_service import create_own, get_own
 from services.result_service import create_result, get_result
 from datetime import datetime
-
-
-def create_questionnaire(tally_id, form_name):
-    # Check if questionnaire already exists
-    existing_form = (
-        db.session.query(Questionnaire)
-        .filter_by(tally_id_questionnaire=tally_id)
-        .first()
-    )
-    if existing_form:
-        return existing_form
-    
-    now = datetime.now()
-
-    questionnaire = Questionnaire(tally_id=tally_id, name=form_name, date_creation=now )
-
-    # Add questionnaire to database
-    db.session.add(questionnaire)
-    db.session.commit()
-    return questionnaire
 
 
 def save_questionnaire(data):
@@ -52,13 +33,11 @@ def save_questionnaire(data):
 
     # Create values to questions
     for q in questions:
+        # Takes the last 6 characters which is the tally id
         question_tally_id = q["key"][-6:]
-        question_type = q["type"]
         
         # Get question from database
         question = get_question(question_tally_id)
-        
-        print("question_tally_id: ", question_tally_id)
         
         # If question does not already exist, create it
         if not question:
@@ -67,17 +46,14 @@ def save_questionnaire(data):
         
         print("question: ", question)
         
-
-        response_value = None
-
-        # si il y a un champ 'options' dans la question, on récupère la valeur de l'option
-        if question_type in ["DROPDOWN", "MULTIPLE_CHOICE"]:
-             for option in q["options"]:
-                if option["id"] == q["value"]:
-                    response_value = option["text"]
-                    break
-        elif question_type in ["INPUT_TEXT", "INPUT_EMAIL", "INPUT_PHONE_NUMBER", "RATING", "LINEAR_SCALE"]:
-            response_value = q["value"]
+        # Link question to form
+        association = get_own(questionnaire.id_questionnaire, question.id_question)
+        
+        if not association:
+            create_own(questionnaire.id_questionnaire, question.id_question)
+        
+        # Get response value depending on question type
+        response_value = get_response_value(q)
 
         result = get_result(response.id_response, question.id_question)
         
@@ -89,6 +65,26 @@ def save_questionnaire(data):
         
         print("result: ", result)
 
+    return questionnaire
+
+
+def create_questionnaire(tally_id, form_name):
+    # Check if questionnaire already exists
+    existing_form = (
+        db.session.query(Questionnaire)
+        .filter_by(tally_id_questionnaire=tally_id)
+        .first()
+    )
+    if existing_form:
+        return existing_form
+    
+    now = datetime.now()
+
+    questionnaire = Questionnaire(tally_id=tally_id, name=form_name, date_creation=now )
+
+    # Add questionnaire to database
+    db.session.add(questionnaire)
+    db.session.commit()
     return questionnaire
 
 
