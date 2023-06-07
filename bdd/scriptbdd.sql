@@ -79,5 +79,9 @@ CREATE TABLE Emails (
    PRIMARY KEY(id_email)
 );
 
+-- Contraintes d'unicité
+ALTER TABLE Emails ADD CONSTRAINT unique_email UNIQUE (email);
+
 -- Insertion des données de test
 INSERT INTO Users (firstname_user, lastname_user, email_user, is_admin) VALUES ('admin', 'admin', 'myselfmindwork@gmail.com', 1);
+INSERT INTO Emails (email) VALUES ('myselfmindwork@gmail.com');
