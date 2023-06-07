@@ -1,16 +1,19 @@
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for
-from services.form_service import get_forms
-
+from services.form_service import get_forms, get_csv
+import csv
 
 form = Blueprint("form", __name__)
 
 
 @form.route("/", methods=["GET"])
-def get_data():
+def get_forms():
+    print("get_forms() called")
     forms = get_forms()
-    return jsonify(forms) 
+    return 'coucou', 200
 
 @form.route("/csv", methods=["GET"])
 def get_csv_data():
-    return 'OK'
+    print("get_csv_data() called")
+    data = get_csv()
+    return data, 200
 

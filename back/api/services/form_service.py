@@ -5,6 +5,7 @@ from services.response_service import create_response, get_response, get_respons
 from services.question_service import create_question, get_question
 from services.own_service import create_own, get_own
 from services.result_service import create_result, get_result
+from formatters.csv_formatter import format_csv
 from datetime import datetime
 
 
@@ -103,7 +104,19 @@ def get_form(tally_id):
 def get_forms():
     questionnaires = db.session.query(Questionnaire).all()
     if not questionnaires:
-        return None
+        print("no questionnaires in database")
+        return Exception("No questionnaires in database")
+    
+    print(len(questionnaires), "questionnaire(s) in database")
 
     return questionnaires
 
+def get_csv():
+    
+    get_forms()
+
+    file = format_csv()
+    
+    print("file: ", file)
+
+    return file
