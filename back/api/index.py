@@ -18,36 +18,11 @@ app.register_blueprint(form, url_prefix="/form")
 app.register_blueprint(webhook, url_prefix="/form")
 
 
-# ----------- templates de test -----------
-
-stored_data = []
-
 # Main page
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
-# Webhook endpoint
-@app.route("/webhook", methods=["POST"])
-def handleWebhook():
-    data = request.get_json()
-    stored_data.append(data)
-    return "OK", 200
-
-
-# Data visualization page
-@app.route("/data")
-def get_data():
-    return render_template("data.html", data=stored_data)
-
-
-# Raw data visualization
-@app.route("/get-data", methods=["GET"])
-def send_data():
-    return jsonify(stored_data)
-
-# ----------- templates de test -----------
 
 if __name__ == "__main__":
     app.run()
