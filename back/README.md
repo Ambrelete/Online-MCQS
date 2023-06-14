@@ -54,12 +54,16 @@ pip3 install -r requirements.txt
 5. Create a `.env` file in `back/` folder :
 
 ```bash
-DATABASE_NAME=
-DATABASE_USER=
-DATABASE_PASSWORD=
-DATABASE_HOST=
-DATABASE_PORT=
+DATABASE_NAME=[name]
+DATABASE_USER=[user]
+DATABASE_PASSWORD=[password]
+DATABASE_HOST=[host]
+DATABASE_PORT=[port]
+
+CSV_PATH='data/data.csv'
 ```
+
+Replace the [variables] with your own values
 
 6. Start the app
 
