@@ -33,6 +33,8 @@ CREATE TABLE Users (
    lastname_user VARCHAR(50),
    email_user VARCHAR(100),
    phone_user VARCHAR(10),
+   username_user VARCHAR(100),
+   password_user VARCHAR(100),
    is_admin BOOLEAN,
    PRIMARY KEY(id_user)
 );
@@ -83,5 +85,5 @@ CREATE TABLE Emails (
 ALTER TABLE Emails ADD CONSTRAINT unique_email UNIQUE (email);
 
 -- Insertion des données de test
-INSERT INTO Users (firstname_user, lastname_user, email_user, is_admin) VALUES ('admin', 'admin', 'myselfmindwork@gmail.com', 1);
+INSERT INTO Users (firstname_user, lastname_user, email_user, is_admin, username_user, password_user) VALUES ('admin', 'admin', 'myselfmindwork@gmail.com', 1, 'admin', '6a158d9847a80e99511b2a7866233e404b305fdb7c953a30deb65300a57a0655');
 INSERT INTO Emails (email) VALUES ('myselfmindwork@gmail.com');

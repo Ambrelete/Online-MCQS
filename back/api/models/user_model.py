@@ -11,8 +11,9 @@ class User(db.Model):
     email_user = db.Column(db.String(100))
     phone_user = db.Column(db.String(10))
     is_admin = db.Column(db.Boolean)
+    username_user = db.Column(db.String(100), unique=True, nullable=False)
+    password_user = db.Column(db.String(100))
 
     def __init__(self, tally_id, is_admin):
         self.tally_id_user = tally_id
         self.is_admin = is_admin
-        

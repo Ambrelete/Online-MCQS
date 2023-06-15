@@ -41,6 +41,14 @@
 			button:hover {
 				background-color: #45a049;
 			}
+
+			#logout {
+				background-color: #f44336;
+			}
+
+			#logout:hover {
+				background-color: #da190b;
+			}
 		</style>
 	</head>
 	<body>
@@ -57,6 +65,9 @@
 			</a>
 			<a href="{{ url_for('form.dl_csv_data') }}">
 				<button>Download Data</button>
+			</a>
+			<a href="{{ url_for('logout') }}">
+				<button id="logout">Logout</button>
 			</a>
 		</div>
 	</body>
