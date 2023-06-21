@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, session
 from controllers.form_controller import form
 from controllers.webhook_controller import webhook
+from controllers.email_controller import email
 from configs.db_config import db, database_url
 from models.user_model import User
 from hashlib import sha256
@@ -21,6 +22,7 @@ db.init_app(app)
 # register the blueprints
 app.register_blueprint(form, url_prefix="/form")
 app.register_blueprint(webhook, url_prefix="/form")
+app.register_blueprint(email, url_prefix="/email")
 
 
 # Main page
@@ -42,11 +44,16 @@ def login():
         # Vérifier l'authentification dans la base de données
         user = User.query.filter_by(username_user=username).first()
 
-        print("sha256", sha256(password.encode("utf-8")).hexdigest())
-        if user and user.password_user == sha256(password.encode("utf-8")).hexdigest():
-            if user.is_admin:
-                session["username"] = username
-                return redirect("/")
+        if (
+            user
+            and user.is_admin
+            and user.password_user == sha256(password.encode("utf-8")).hexdigest()
+        ):
+            print("Login successful:", username)
+            session["username"] = username
+            return redirect("/")
+        else:
+            print("Login failed:", username)
 
         return render_template("login.html", incorrect=True)
 
