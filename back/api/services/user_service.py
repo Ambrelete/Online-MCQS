@@ -17,3 +17,35 @@ def create_user(tally_id, isAdmin):
     db.session.add(user)
     db.session.commit()
     return user
+
+
+def update_user_firstname(user_id, firstname):
+    user = db.session.query(User).filter_by(id_user=user_id).first()
+    if user:
+        user.firstname_user = firstname
+        db.session.commit()
+        return user
+
+
+def update_user_lastname(user_id, lastname):
+    user = db.session.query(User).filter_by(id_user=user_id).first()
+    if user:
+        user.lastname_user = lastname
+        db.session.commit()
+        return user
+
+
+def update_user_email(user_id, email):
+    user = db.session.query(User).filter_by(id_user=user_id).first()
+    if user:
+        user.email_user = email
+        db.session.commit()
+        return user
+
+
+def update_user_phone(user_id, phone):
+    user = db.session.query(User).filter_by(id_user=user_id).first()
+    if user:
+        user.phone_user = phone
+        db.session.commit()
+        return user
